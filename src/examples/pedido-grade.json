@@ -1,0 +1,129 @@
+{
+	"configuracoes": {
+		"layout": "grade",
+		"totalizarGrupo": false,
+		"tipoImagemLogo": "local",
+		"exibirImagemProduto": true,
+		"tipoImagemProduto": "local",
+		"tituloEntregaFaturamento": "PREV. FATURAMENTO",
+		"tituloDescontoItens": "DESC.",
+		"tamanhoReduzido": false,
+		"expandirImagemReferencia": false
+	},
+	"envioEmail": {
+		"assunto": "EMPRESA - CÓPIA DO PEDIDO NÚMERO X DO CLIENTE FULANO",
+		"correspondente": "CÓPIA DE PEDIDO - EMPRESA <noreply@gmobil.com.br>",
+		"destinatarios": "",
+		"copia": "",
+		"responderPara": "",
+		"nomeArquivo": "PEDIDO_123.pdf",
+		"saudacao": "Prezado(a) cliente,",
+		"intro": "Você está recebendo uma cópia do pedido enviado para a ...",
+		"conteudo": "Este é um email automático. Qualquer dúvida, favor entrar em contato direto com o seu representante ou com a empresa.",
+		"avisoTitulo": "IMPORTANTE:",
+		"aviso": "",
+		"rodape": "<br><strong>Empresa X</strong>",
+		"logoCorpoEmail": "D:/logo.png"
+	},
+	"empresa": {
+		"logoPdf": "D:/logo.png",
+		"nome": "",
+		"cnpj": "",
+		"ie": "",
+		"endereco": "",
+		"cidade": "",
+		"cep": "",
+		"telefone": "",
+		"email": ""
+	},
+	"pedido": {
+		"codigo": "",
+		"codigoExterno": "",
+		"emissao": "",
+		"tabelaPreco": "",
+		"condicaoPagamento": "",
+		"frete": "",
+		"transportadora": "",
+		"colecao": "",
+		"entrega": "",
+		"percentualDescontoMedio": "0.00%",
+		"totalBruto": 1.00,
+		"desconto": 0.0,
+		"totalLiquido": 1.00,
+		"pecas": 1,
+		"observacoes": ""	},
+	"cliente": {
+		"nome": "",
+		"codigo": "",
+		"cnpjCpf": "",
+		"inscricaoEstadual": "",
+		"endereco": "",
+		"cidade": "",
+		"cep": "",
+		"telefone": "",
+		"email": ""
+	},
+	"representante": {
+		"codigo": 1,
+		"cnpjCpf": "",
+		"nome": "",
+		"telefone": "",
+		"email": ""
+	},
+	"itens": [
+		{
+			"codigo": "",
+			"nome": "",
+			"imagem": "C:/Gmobil/WEB/foto.jpg",
+			"tamanhos": [
+				{
+					"descricao": "P"
+				},
+				{
+					"descricao": "M"
+				},
+				{
+					"descricao": "G"
+				},
+				{
+					"descricao": "GG"
+				}
+			],
+			"cores": [
+				{
+					"codigo": "",
+					"nome": "",
+					"precos": [
+						{
+							"precoBruto": 1.00,
+							"desconto": 0.0,
+							"precoLiquido": 1.00,
+							"quantidade": 3,
+							"total": 3.00,
+							"tamanhos": [
+								{
+									"descricao": "P",
+									"quantidade": 1
+								},
+								{
+									"descricao": "M",
+									"quantidade": 2
+								}
+							]
+						}
+					]
+				}
+			]
+		}
+	],
+	"complementos": [
+		{
+			"valor": "<p></p>"
+		}
+	],
+	"imagensAnexadas": [
+		{
+			"base": ""
+		}
+	]
+}

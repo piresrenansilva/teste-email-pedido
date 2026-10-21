@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <style>
+            {{{css}}}
+        </style>
+    </head>
+    <body class="{{#if dados.configuracoes.tamanhoReduzido}}reduzido{{/if}}">
+        <div class="header">
+            <div class="logo">
+                <img src="{{dados.empresa.logoPdf}}" alt="LOGO">
+            </div>
+            <div class="empresa">
+                <div class="nome">{{dados.empresa.nome}}</div>
+                <div>CNPJ: {{dados.empresa.cnpj}} / I.E.: {{dados.empresa.ie}}</div>
+                <div>{{dados.empresa.endereco}}</div>
+                <div>{{dados.empresa.cidade}} - CEP: {{dados.empresa.cep}}</div>
+                <div>{{dados.empresa.telefone}}</div>
+                <div>{{dados.empresa.email}}</div>
+            </div>
+            <div class="pedido">
+                <div class="linha">
+                    <div class="titulo">PEDIDO</div>
+                    <div class="valor">{{dados.pedido.codigo}}</div>
+                </div>
+                <div class="linha">
+                    <div class="titulo">EMISSÃO</div>
+                    <div class="valor">{{dados.pedido.emissao}}</div>
+                </div>
+                {{#if dados.pedido.codigoExterno}}
+                <div class="linha">
+                    <div class="titulo">PEDIDO EXTERNO</div>
+                    <div class="valor">{{dados.pedido.codigoExterno}}</div>
+                </div>
+                {{/if}}
+            </div>
+            <div class="cliente">
+                <div class="nome">{{dados.cliente.nome}}</div>
+                <div>
+                    {{#if dados.cliente.codigo}}
+                        {{dados.cliente.codigo}} - 
+                    {{/if}}
+                    {{dados.cliente.cnpjCpf}}
+                </div>
+                {{#if dados.cliente.inscricaoEstadual}}
+                    <div>IE: {{dados.cliente.inscricaoEstadual}}</div>
+                {{/if}}
+                <div>{{dados.cliente.endereco}}</div>
+                <div>
+                    {{dados.cliente.cidade}} 
+                    {{#if dados.cliente.cep}}
+                        , CEP: {{dados.cliente.cep}}
+                    {{/if}}
+                </div>
+                <div>{{dados.cliente.telefone}}</div>
+                <div>{{dados.cliente.email}}</div>
+            </div>
+        </div>
+        <div class="representante">
+            <div class="titulo-valor">
+                <div class="titulo">REPRESENTANTE:</div>
+                <div>{{dados.representante.nome}}</div>
+            </div>
+            
+            <div class="titulo-valor">
+                <div class="titulo">TELEFONE:</div>
+                <div>{{dados.representante.telefone}}</div>
+            </div>
+            <div class="titulo-valor">
+                <div class="titulo">E-MAIL:</div>
+                <div>{{dados.representante.email}}</div>
+            </div>            
+        </div>
+        <div class="detalhes-pedido">
+            {{#if dados.pedido.tabelaPreco}}
+                <div class="titulo-valor">                
+                    <div class="titulo">TABELA DE PREÇO:</div>
+                    <div>{{dados.pedido.tabelaPreco}}</div>
+                </div>
+            {{/if}}
+            <div class="titulo-valor">
+                <div class="titulo">CONDIÇÃO DE PAGAMENTO:</div>
+                <div>{{dados.pedido.condicaoPagamento}}</div>
+            </div>
+            <div class="titulo-valor">
+                <div class="titulo">FRETE:</div>
+                <div>{{dados.pedido.frete}}</div>
+            </div>
+            <div class="titulo-valor">
+                <div class="titulo">COLEÇÃO:</div>
+                <div>{{dados.pedido.colecao}}</div>
+            </div>
+            <div class="titulo-valor">
+                <div class="titulo">
+                    {{#if dados.configuracoes.tituloEntregaFaturamento}}
+                        {{dados.configuracoes.tituloEntregaFaturamento}}
+                    {{else}}
+                        PREVISÃO DE ENTREGA:
+                    {{/if}}                    
+                </div>
+                <div>{{dados.pedido.entrega}}</div>
+            </div>
+            <div class="titulo-valor">
+                <div class="titulo">DESCONTO MÉDIO:</div>
+                <div>{{dados.pedido.percentualDescontoMedio}}</div>
+            </div>
+        </div>        
+        <table class="itens">
+            <colgroup>
+                {{#if dados.configuracoes.exibirImagemProduto}}
+                    <col class="col-imagem">
+                {{/if}}
+                <col class="col-referencia">
+                <col class="col-preco-bruto">
+                <col class="col-desconto">
+                <col class="col-preco-liquido">
+                <col class="col-quantidade">
+                <col class="col-total">
+                <col class="col-tamanhos">
+            </colgroup>
+            <thead>
+                <tr >
+                    {{#if dados.configuracoes.exibirImagemProduto}}
+                        <th class="col-imagem"></th>
+                    {{/if}}
+                    <th class="col-referencia">REFERÊNCIA</th>
+                    <th class="col-preco-bruto">PRE. BRU.</th>
+                    <th class="col-desconto">
+                        {{#if dados.configuracoes.tituloDescontoItens}}
+                            {{dados.configuracoes.tituloDescontoItens}}
+                        {{else}}
+                            % DESC.
+                        {{/if}}
+                    </th>
+                    <th class="col-preco-liquido">PRE. LÍQ.</th>
+                    <th class="col-quantidade">QTD.</th>
+                    <th class="col-total">TOTAL</th>
+                    <th class="col-tamanhos">TAMANHOS</th>
+                </tr>
+            </thead>
+            <tbody>                
+                {{#each dados.itens}}
+                <tr class="linha-referencia">
+                    {{#if ../dados.configuracoes.exibirImagemProduto}}
+                        <td class="col-imagem td-imagem-referencia {{#if (aplicarMargemBottomUltimaRef @last ../dados.configuracoes.expandirImagemReferencia)}}margem-bottom-img-ref{{/if}}" 
+                            {{#if ../dados.configuracoes.expandirImagemReferencia}}rowspan="{{rowspan}}{{/if}}">
+                            <img src="{{imagem}}" alt="REF">
+                        </td>
+                    {{/if}}
+                    <td class="col-referencia">
+                        <div class="referencia">
+                            <div class="descricao">{{codigo}} - {{nome}}</div>                            
+                        </div>
+                    </td>
+                    <td class="col-preco-bruto"></td>
+                    <td class="col-desconto"></td>
+                    <td class="col-preco-liquido"></td>
+                    <td class="col-quantidade"></td>
+                    <td class="col-total"></td>
+                    <td class="col-tamanhos">
+                        <div class="tamanhos">
+                            {{#each tamanhos}}
+                                <div class="box box-titulo">{{descricao}}</div>
+                            {{/each}}
+                        </div>
+                    </td>
+                </tr>
+                {{#each cores}}                
+                <tr class="linha-cor {{#if (linhaPar @index)}}linha-par{{else}}linha-impar{{/if}}">
+                    {{#if (exibirColunaImgCor ../../dados.configuracoes.exibirImagemProduto ../../dados.configuracoes.expandirImagemReferencia)}}
+                        <td class="col-imagem"></td>
+                    {{/if}}
+
+                    <td class="col-referencia">{{codigo}} - {{nome}}</td>
+
+                    {{#each precos}} 
+                        {{#if @first}} {{! primeiro registro de preço que fica na mesma linha da cor}}                    
+                            <td class="col-preco-bruto">{{formatarNumerico precoBruto}}</td>
+                            <td class="col-desconto">{{formatarNumerico desconto}}</td>
+                            <td class="col-preco-liquido">{{formatarNumerico precoLiquido}}</td>
+                            <td class="col-quantidade">{{quantidade}}</td>
+                            <td class="col-total">{{formatarNumerico total}}</td>
+                            <td class="col-tamanhos">
+                                <div class="tamanhos">
+                                    {{#each tamanhos}}
+                                        <div class="box box-valor">{{quantidade}}</div>
+                                    {{/each}}
+                                </div>
+                            </td>
+                        {{/if}}
+                    {{/each}}
+                </tr>                
+
+                {{#each precos}}
+                    {{#unless @first}}
+                    <tr class="linha-cor {{#if (linhaPar @../index)}}linha-par{{else}}linha-impar{{/if}}">                        
+                        {{#if (exibirColunaImgCor ../../../dados.configuracoes.exibirImagemProduto ../../../dados.configuracoes.expandirImagemReferencia)}}
+                            <td class="col-imagem"></td>
+                        {{/if}}
+                        <td class="col-referencia"></td>
+                        <td class="col-preco-bruto">{{formatarNumerico precoBruto}}</td>
+                        <td class="col-desconto">{{formatarNumerico desconto}}</td>
+                        <td class="col-preco-liquido">{{formatarNumerico precoLiquido}}</td>
+                        <td class="col-quantidade">{{quantidade}}</td>
+                        <td class="col-total">{{formatarNumerico total}}</td>
+                        <td class="col-tamanhos">
+                            <div class="tamanhos">
+                                {{#each tamanhos}}
+                                    <div class="box box-valor">{{quantidade}}</div>
+                                {{/each}}
+                            </div>
+                        </td>
+                    </tr>
+                    {{/unless}}
+                {{/each}} {{! fechamento do loop de precos}}
+
+                {{/each}} {{! fechamento do loop de cores}}
+
+                {{/each}} {{! fechamento do loop de referencia}}
+            </tbody>            
+        </table>        
+        <div class="totais-cabecalho">
+            <div>Total Bruto (R$)</div>
+            <div>Desconto (R$)</div>
+            <div>Total Líquido (R$)</div>
+            <div>Peças</div>
+        </div>
+        <div class="totais-valores">
+            <div>{{formatarNumerico dados.pedido.totalBruto}}</div>
+            <div>{{formatarNumerico dados.pedido.desconto}}</div>
+            <div>{{formatarNumerico dados.pedido.totalLiquido}}</div>
+            <div>{{dados.pedido.pecas}}</div>
+        </div>
+        {{#if dados.pedido.observacoes}}                                                    
+            <div class="observacao">
+                <div class="titulo">Observações:</div>
+                <div>{{dados.pedido.observacoes}}</div>
+            </div>
+        {{/if}}
+        {{#each dados.complementos}}
+            {{{valor}}}    
+        {{/each}}        
+        {{#if dados.imagensAnexadas}}
+            <br/>
+            <p class="titulo-imagens-anexadas">Imagens anexadas ao pedido:</p>
+            <div class="galeria-anexos">
+            {{#each dados.imagensAnexadas}}            
+                <div class="foto">
+                    <img src="data:image/jpeg;base64,{{base}}" alt="IMG-ANEXO">         
+                </div>
+            {{/each}}
+            </div>        
+        {{/if}}
+    </body>
+</html>

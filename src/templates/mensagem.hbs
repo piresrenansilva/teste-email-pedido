@@ -1,0 +1,73 @@
+<table width="100%" cellpadding="0" cellspacing="0" style="background-color:#f4f6f8; padding:20px 0;">
+  <tr>
+    <td align="center">
+
+      <table width="600" cellpadding="0" cellspacing="0" style="background:#ffffff; border-radius:8px;">
+
+        <!-- LOGO -->
+        {{#if dados.envioEmail.logoCorpoEmail}}
+        <tr>
+          <td style="text-align: center; padding: 20px 20px 10px 20px;">
+            <img 
+              src="cid:logo_empresa" 
+              alt="Logo"
+              style="max-width: 180px; height: auto; display: block; margin: 0 auto;"
+            />
+          </td>
+        </tr>
+        {{/if}}
+
+        <!-- CONTEÚDO -->
+        <tr>
+          <td style="padding: 20px 30px; font-size:14px; color:#555; line-height:1.6; font-family: Arial, sans-serif;">
+
+            <!-- Saudação -->
+            {{#if dados.envioEmail.saudacao}}
+              <p style="margin:0 0 15px;">
+                {{dados.envioEmail.saudacao}}
+              </p>
+            {{/if}}
+
+            <!-- Introdução -->
+            {{#if dados.envioEmail.intro}}
+              <p style="margin:0 0 15px;">
+                {{dados.envioEmail.intro}}
+              </p>
+            {{/if}}
+
+            <!-- Conteúdo principal -->
+            {{#if dados.envioEmail.conteudo}}
+              <p style="margin:0 0 20px;">
+                {{dados.envioEmail.conteudo}}
+              </p>
+            {{/if}}
+
+            <!-- Aviso -->
+            {{#if dados.envioEmail.aviso}}
+              <div style="background-color:#fff3cd; padding:15px; border-radius:5px; margin-bottom:20px;">
+                
+                {{#if dados.envioEmail.avisoTitulo}}
+                  <strong>{{dados.envioEmail.avisoTitulo}}</strong>
+                {{/if}}
+
+                <p style="margin:10px 0 0 0;">
+                  {{dados.envioEmail.aviso}}
+                </p>
+              </div>
+            {{/if}}
+
+            <!-- Rodapé -->
+            {{#if dados.envioEmail.rodape}}
+              <p style="margin-top:20px; font-size:12px; color:#777;">
+                {{{dados.envioEmail.rodape}}}
+              </p>
+            {{/if}}
+
+          </td>
+        </tr>
+
+      </table>
+
+    </td>
+  </tr>
+</table>

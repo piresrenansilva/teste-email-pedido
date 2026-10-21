@@ -1,0 +1,113 @@
+{
+	"configuracoes": {
+		"layout": "grade",
+		"totalizarGrupo": false,
+		"tipoImagemLogo": "local",
+		"exibirImagemProduto": true,
+		"tipoImagemProduto": "local"
+	},
+	"envioEmail": {
+		"assunto": "",
+		"correspondente": "CÓPIA DE PEDIDO <noreply@gmobil.com.br>",
+		"destinatarios": "",
+		"copia": "",
+		"responderPara": "",
+		"nomeArquivo": "PEDIDO.pdf",
+		"saudacao": "Prezado(a) cliente,",
+		"intro": "Agradecemos pelo seu pedido e pela confiança. É um prazer atendê-lo(a)!",
+		"conteudo": "Você está recebendo uma cópia do pedido enviado para conferência. Este é um e-mail automático, portanto pedimos que verifique se todas as informações estão corretas.",
+		"avisoTitulo": "Importante:",
+		"aviso": "O pedido está sujeito a análise de crédito, para aprovação.",
+		"rodape": "Agradecemos novamente pela oportunidade.",
+		"logoCorpoEmail": "C:/logo.png"
+	},	
+	"empresa": {
+		"logoPdf": "C:/Movel/Server/HTMLs/logo.png",
+		"nome": "",
+		"cnpj": "",
+		"ie": "",
+		"endereco": "",
+		"cidade": "",
+		"cep": "",
+		"telefone": "",
+		"email": ""
+	},
+	"pedido": {
+		"codigo": "",
+		"codigoExterno": "",
+		"emissao": "",
+		"condicaoPagamento": "",
+		"frete": "",
+		"transportadora": "",
+		"colecao": "",
+		"entrega": "",
+		"percentualDescontoMedio": "0.00%",
+		"totalBruto": 1.00,
+		"desconto": 0.0,
+		"totalLiquido": 1.00,
+		"pecas": 1,
+		"observacoes": ""
+	},
+	"cliente": {
+		"nome": "",
+		"codigo": "",
+		"cnpjCpf": "",
+		"endereco": "",
+		"cidade": "",
+		"cep": "",
+		"telefone": "",
+		"email": ""
+	},
+	"representante": {
+		"codigo": 1,
+		"cnpjCpf": "",
+		"nome": "",
+		"telefone": ""
+	},
+	"itens": [
+		{
+			"codigo": "",
+			"nome": "",
+			"imagem": "C:/Gmobil/WEB/foto.jpg",
+			"tamanhos": [
+				{
+					"descricao": "P"
+				},
+				{
+					"descricao": "M"
+				},
+				{
+					"descricao": "G"
+				},
+				{
+					"descricao": "GG"
+				}
+			],
+			"cores": [
+				{
+					"codigo": "",
+					"nome": "",
+					"precos": [
+						{
+							"precoBruto": 1.00,
+							"desconto": 0.0,
+							"precoLiquido": 1.00,
+							"quantidade": 3,
+							"total": 3.00,
+							"tamanhos": [
+								{
+									"descricao": "P",
+									"quantidade": 1
+								},
+								{
+									"descricao": "M",
+									"quantidade": 2
+								}
+							]
+						}
+					]
+				}
+			]
+		}
+	]
+}
